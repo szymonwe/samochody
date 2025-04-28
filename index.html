@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>NGIWHEELS</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; background: #f2f2f2; }
+    header { background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    header .logo { font-weight: bold; font-size: 24px; display: flex; align-items: center; gap: 5px; }
+    header nav { display: flex; gap: 15px; flex-wrap: wrap; }
+    header nav a { text-decoration: none; color: #333; font-weight: 500; }
+    header .actions { display: flex; gap: 10px; align-items: center; }
+    .filters { display: flex; flex-wrap: wrap; gap: 10px; padding: 20px; background: white; justify-content: center; }
+    .filters input, .filters select { padding: 5px; border: 1px solid #ccc; border-radius: 4px; }
+    .filters button { padding: 5px 10px; border: none; background: #007bff; color: white; border-radius: 4px; cursor: pointer; }
+    .container { display: flex; gap: 20px; padding: 20px;  justify-content: center; flex-wrap: wrap; }
+    .card { background: white; padding: 10px; border-radius: 8px; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.1);  width: 350px; height: 420px; display: flex; flex-direction: column; align-items: center; justify-content: space-between;  width: 350px; height: 420px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; overflow: hidden;  width: 400px; height: 500px; }
+    .card img { width: 100%; border-radius: 8px;  height: 200px; object-fit: contain;  height: 350px; object-fit: contain; }
+    .title { font-weight: bold; font-size: 16px; margin: 10px 0 5px; }
+    .price { font-weight: bold; font-size: 18px; margin-bottom: 10px; }
+    .meta { font-size: 12px; color: gray; }
+    a { text-decoration: none; color: inherit; }
+  </style>
+</head>
+<body>
+<style>body { min-height: 120vh; padding-bottom: 100px; }</style>
+  <header>
+    <div class="logo"><img src="logo.png" alt="NGIWHEELS logo" style="height: 40px;"></div><div id="user-box" style="position: absolute; right: 20px; top: 20px;"><a href="login.html">Zaloguj się</a> | <a href="register.html">Zarejestruj się</a></div><div style="position: absolute; right: 20px; top: 20px;"><a href="login.html">Zaloguj się</a> | <a href="register.html">Zarejestruj się</a></div>
+    <nav>
+      <a href="#">Strefa marek</a>
+      <a href="#">Finansowanie</a>
+      <a href="#"> Lease</a>
+      <a href="#">Obserwowane</a>
+    </nav>
+    <div class="actions">
+   
+    </div>
+  </header>
+  <div class="filters">
+    <select><option>Marka pojazdu</option></select>
+    <select><option>Model pojazdu</option></select>
+    <select><option>Generacja</option></select>
+    <select><option>Typ nadwozia</option></select>
+    <input type="text" placeholder="Cena od">
+    <input type="text" placeholder="Cena do">
+    <input type="text" placeholder="Rok produkcji od">
+    <input type="text" placeholder="Rok produkcji do">
+    <input type="text" placeholder="Przebieg od">
+    <input type="text" placeholder="Przebieg do">
+    <select><option>Rodzaj paliwa</option></select>
+    <select><option>Stan uszkodzeń</option></select>
+    <input type="text" placeholder="Wpisz wersję, model lub inne szczegóły">
+    <button>Szukaj</button>
+  </div>
+  <h1 style="padding: 20px;">Proponowane :</h1>
+  <div class="container">
+    <div class="card">
+      <img src="model_x.svg" alt="Tesla X">
+      <div class="title">Tesla Model X Long Range Plus</div>
+<div style="margin-top: 10px;"><a href="model-x.html">Zobacz więcej</a></div>
+      <div class="price">145 000 PLN</div>
+      <div class="meta">169 000 km · Elektryczny · Automatyczna · 2019</div>
+    </div>
+    <a href="tesla_y.html">
+      <div class="card">
+        <img src="model_y.svg" alt="Tesla Y">
+        <div class="title">Tesla Y Long Range AWD</div>
+        <div class="price">155 000 PLN</div>
+        <div class="meta">50 456 KM · Elektryczny · Automatyczna · 2024</div>
+      </div>
+    </a>
+  </div>
+</body>
+</html>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+    const userEmail = localStorage.getItem("loggedUser");
+    const userBox = document.getElementById("user-box");
+
+    if (isLoggedIn && userEmail) {
+      userBox.innerHTML = `<span>Witaj, ${userEmail}</span> <a href="#" onclick="logout()">[Wyloguj]</a>`;
+    }
+  });
+
+  function logout() {
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("loggedUser");
+    window.location.reload();
+  }
+</script>
+
+<footer style="background-color: #f1f1f1; padding: 40px; display: flex; justify-content: space-around; flex-wrap: wrap; font-family: sans-serif;">
+  <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+    <h4>Znajdź nas</h4>
+    <p>📘 Facebook</p>
+    <p>📸 Instagram</p>
+    <p>📺 YouTube</p>
+    <p>🎵 TikTok</p>
+  </div>
+  <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+    <img src="logo.png" alt="NGIWheels" style="height: 30px;"><br>
+    <p>Pomoc</p>
+    <p>Kontakt</p>
+    <p>Reklama</p>
+    <p>Biuro prasowe</p>
+    <p>Polityka prywatności</p>
+    <p>Polityka plików "cookies"</p>
+    <p>Ustawienia plików cookie</p>
+    <p>Regulamin dla Klientów Indywidualnych</p>
+    <p>Regulamin dla Klientów Biznesowych</p>
+  </div>
+  <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+    <h4>Usługi i narzędzia</h4>
+    <p>Umowa kupna sprzedaży</p>
+    <p>Ile jest wart Twój samochód?</p>
+    <p>Finansowanie ℹ️</p>
+  </div>
+  <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+    <h4>Przydatne informacje</h4>
+    <p>Cennik dla Klientów Indywidualnych</p>
+    <p>Cennik dla Klientów Biznesowych</p>
+    <p>Testy samochodów</p>
+    <p>Internetowy Samochód Roku</p>
+    <p>Mapa kategorii</p>
+    <p>Mapa miejscowości</p>
+    <p>Kariera</p>
+    <p>Części – dobre praktyki</p>
+  </div>
+</footer>
